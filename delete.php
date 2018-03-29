@@ -1,8 +1,12 @@
-<?php
-include "action.php";
-$title=$_GET['title'];
-$query="DELETE from info where title='$title'";
-if($query){
-?><script language="javascript">document.location.href="index.php";</script><?php
-}
+<<?php
+include("action.php");
+include ("index.php");
+if(isset($_GET['id'])){
+$id=$_GET['id'];
+$delete = "DELETE FROM info WHERE id=$id";
+$run=mysqli_query($con, $delete);
+if($run){
+header('location: index.php');
+} }
+
 ?>
